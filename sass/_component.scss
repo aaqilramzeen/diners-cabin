@@ -1,0 +1,346 @@
+// User Navigation
+.navbar-nav {
+    font-size: 1.4rem;
+    list-style: none;
+    margin-top: 0.8rem;
+    align-self: stretch;
+    display: flex;
+    justify-content: flex-end;
+
+    &__item {
+        position: relative;
+    }
+
+    &__item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 3px;
+        background-color: var(--color-primary);
+        transform: scaleY(0); // Element scales only in the Y direction
+        //transform-origin: bottom; // default is center
+        transition: transform .2s,
+            width .4s cubic-bezier(1, 0, 0, 1) .2s,
+            background-color .1s; // can setting different settings for different properties. Ideal for staged animations
+    }
+
+    &__item:hover::before,
+    &__item--active::before {
+        transform: scaleY(1);
+        width: 100%;
+    }
+
+    &__item:active::before {
+        background-color: var(--color-primary-light);
+    }
+
+    &__link:link,
+    &__link:visited {
+        color: var(--color-grey-light-1);
+        text-decoration: none;
+        text-transform: uppercase;
+        display: block;
+        padding: 1.5rem 3rem;
+        position: relative;
+        z-index: 10; // z-index works only if we have a specific position hence the position: relative;
+
+        display: flex;
+        align-items: center;
+
+    }
+
+}
+
+// About Section
+.intro {
+    margin: 2.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 50%;
+
+    &__text {
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 1.5;
+        padding: 1rem 0;
+    }
+}
+
+.gallery {
+    display: flex;
+    flex: 0 0 50%;
+    position: relative;
+
+    &__photo {
+        width: 45%;
+        box-shadow: 0 1.5rem 4rem rgba(black, .4);
+        border-radius: 2px;
+        position: absolute;
+        z-index: 10;
+        transition: all .2s;
+        outline-offset: 2rem;
+
+        &--1 {
+            left: 3rem;
+            top: -2rem;
+        }
+
+        &--2 {
+            right: 4rem;
+            top: 2rem;
+        }
+
+        &--3 {
+            left: 20%;
+            top: 8rem;
+        }
+
+        &:hover {
+            transform: scale(1.05) translateY(-.5rem);
+            box-shadow: 0 2.5rem 4rem rgba(black, .5);
+            z-index: 20;
+        }
+    }
+}
+
+// Menu Section
+.menu {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 2rem;
+    padding: 3rem;
+    background-color: #fff;
+    box-shadow: var(--shadow-dark);
+}
+
+.list {
+    list-style: none;
+    margin: 1rem 0;
+    padding: 1rem 0;
+    border-bottom: var(--line);
+    font-size: 1.7rem;
+    cursor: pointer;
+
+    &__item {
+        flex: 0 0 50%;
+        margin-bottom: .7rem;
+    }
+
+    &__item::before {
+        content: "";
+        display: inline-block;
+        height: 1rem;
+        width: 1rem;
+        margin-right: .7rem;
+
+        // // Older Browsers
+        // background-image: url(../img/chevron-thin-right.svg);
+        // background-size: cover;
+
+        // Newer Browsers - Masks
+        // ** A mask defines an area where we can look through the element and see whats behind that element
+        background-color: var(--color-primary);
+        -webkit-mask-image: url(../img/chevron-thin-right.svg);
+        -webkit-mask-size: cover;
+        mask-image: url(../img/chevron-thin-right.svg);
+        mask-size: cover;
+    }
+}
+
+.menu-gallery {
+    display: flex;
+    margin-top: 1.5rem;
+
+    &__photo {
+        width: 100%;
+        display: inline-block;
+        transition: all .3s;
+
+        &:hover {
+            transform: scale(1.05) translateY(-.5rem);
+            box-shadow: 0 2.5rem 4rem rgba(black, .5);
+        }
+    }
+}
+
+.special-item {
+    display: flex;
+    margin-top: 1.5rem;
+    position: relative;
+
+    &__photo {
+        width: 90%;
+        display: block;
+        transition: all .5s;
+
+        &:hover {
+            transform: scale(1.05) translateY(-.5rem);
+            box-shadow: 0 2.5rem 4rem rgba(black, .5);
+        }
+    }
+
+    &__description {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.6rem;
+        color: var(--color-grey-dark-1);
+        margin-right: .5rem;
+    }
+
+}
+
+.contact-details {
+    display: flex;
+    flex: 0 0 50%;
+    flex-direction: column;
+    padding: 2rem;
+    box-shadow: var(--shadow-light);
+}
+
+.addresses {
+    display: flex;
+    justify-content: space-around;
+}
+
+.address {
+    font-size: 1.8rem;
+    margin-top: 1.5rem;
+    font-weight: 500;
+
+
+    // &:not(:last-of-type) {
+    //     padding-right: 2rem;
+    //     margin-left: 2rem;
+    //     border-right: var(--line);
+    // }
+}
+
+.reservations {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 50%;
+    background-color: var(--color-grey-light-3);
+    box-shadow: var(--shadow-light);
+    padding: 2rem;
+
+    &__form {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 5rem;
+    }
+}
+
+.form {
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    &__input {
+        font-size: 1.5rem;
+        font-family: inherit;
+        color: inherit;
+        padding: 1.5rem 2rem; // Standard for inputs and buttons. 
+        border-radius: 2px;
+        background-color: rgba(#fff, .9);
+        border: none;
+        border-bottom: 3px solid transparent;
+        width: 90%;
+        display: block;
+        transition: all .5s;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba(black, .1);
+            border-bottom: 3px solid var(--color-primary);
+        }
+
+        &::-webkit-input-placeholder {
+            color: var(--color-grey-dark-2);
+        }
+
+        &:focus:invalid {
+            border-bottom: 3px solid var(--color-primary-dark);
+        }
+    }
+
+    &__label {
+        color: var(--color-grey-dark-3);
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: .7rem;
+        display: block;
+        transition: all .3s;
+    }
+
+    &__input:placeholder-shown+&__label {
+        // '+' - adjacent sibling
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+}
+
+.btn {
+
+    &,
+    &:link,
+    &:visited {
+        font-family: 'Jost', sans-serif;
+        padding: 1.5rem 5rem;
+        display: inline-block;
+        transition: all .2s;
+        position: relative;
+        font-size: 1.8rem;
+
+        //Change for the <button> element
+        border: none;
+        cursor: pointer;
+    }
+
+    &:hover {
+        transform: translateY(-.3rem);
+        box-shadow: var(--shadow-dark);
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+        transform: translateY(-.1rem);
+        box-shadow: var(--shadow-dark);
+    }
+
+    &--primary {
+        background-color: var(--color-primary);
+        color: #fff;
+
+        &::after {
+            background-color: var(--color-primary);
+        }
+    }
+
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
+
+    &--animated {
+        animation: moveInBottom 1s ease-out .75s;
+        animation-fill-mode: backwards;
+    }
+}
