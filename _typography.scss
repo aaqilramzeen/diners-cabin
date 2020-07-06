@@ -140,6 +140,7 @@
     @extend %heading;
     font-size: 1.6rem;
     color: var(--color-primary-light);
+    text-align: center;
 
     @media only screen and (max-width: $bp-small) {
         margin-right: 2rem; 
