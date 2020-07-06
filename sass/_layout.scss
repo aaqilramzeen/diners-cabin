@@ -1,20 +1,33 @@
 .container {
-    max-width: 180rem;
-    margin: 5rem auto;
+    margin: 0rem auto;
     background-color: var(--color-grey-light-2);
     box-shadow: var(--shadow-dark);
+
+    @media only screen and (max-width: $bp-largest) {
+        margin: 0;
+        max-width: 100%;
+        width: 100%;
+    }
 }
 
 .header {
     font-size: 1.4rem;
-    height: 7rem;
+    height: 100vh;
     background-color: #fff;
-    border-bottom: var(--line);
     display: flex;
+    flex-direction: column;
+    background-image: url(/img/cover.jpg);
+    background-size: cover;
+    justify-content: space-between;
+
+    @media only screen and (max-width: $bp-small) {
+        background-image: url(/img/food-13.jpg);
+        background-size: cover;
+    }
 }
 
 .navbar {
-    background-color: var(--color-grey-dark-1);
+    // background-color: var(--color-grey-dark-1);
     flex-direction: row; // default
     width: 100%;
 }
@@ -30,8 +43,21 @@
 .about {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 5rem;
+    padding: 7rem;
     border-bottom: var(--line);
+
+    @media only screen and (max-width: $bp-large) {
+        padding: 0rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        padding-bottom: 2.5rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        flex-direction: column;
+        padding-bottom: 35rem;
+    }
 }
 
 .menu_details {
@@ -39,6 +65,12 @@
     flex-direction: column;
     padding: 2rem 5rem;
     border-bottom: var(--line);
+
+    @media only screen and (max-width: $bp-large) {
+        margin-top: 3rem;
+        padding: 0;
+        padding-bottom: 2.5rem;
+    } 
 }
 
 .specials {
@@ -46,23 +78,35 @@
     flex-direction: column;
     margin: 3rem 5rem;
     padding: 2rem;
-    // background-color: var(--color-grey-dark-1);
     box-shadow: var(--shadow-dark);
+
+    @media only screen and (max-width: $bp-large) {
+        margin: 0;
+        margin-top: 2.5rem;
+    }
 }
 
 .special-items {
     display: flex;
     margin-top: 1.5rem;
+
+    @media only screen and (max-width: $bp-smallest) {
+        flex-direction: column;
+    }
 }
 
-.contact {
+.reservation {
     display: flex;
     padding: 5rem;
-    margin-top: 1.5rem;
-    border-top: var(--line);
+    box-shadow: var(--shadow-dark);
+
+    @media only screen and (max-width: $bp-large) {
+        margin-top: 4rem;
+        padding: 0;
+    }
 }
 
-
-
-
-
+.footer {
+    padding: 3rem;
+    background-color: var(--color-grey-dark-1);
+}
