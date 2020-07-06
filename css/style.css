@@ -644,7 +644,8 @@ body {
 
 .heading-6 {
   font-size: 1.6rem;
-  color: var(--color-primary-light); }
+  color: var(--color-primary-light);
+  text-align: center; }
   @media only screen and (max-width: 37.5em) {
     .heading-6 {
       margin-right: 2rem; } }
